@@ -1,0 +1,31 @@
+// Color scheme
+$primary-color: #94c120 !default;
+$primary-counter-color: #202020;
+$secondary-color: #202020 !default;
+$tertiary-color: #ececec !default;
+$quarternary-color: #FFFFFF !default;
+$test-color: #000113;
+
+$white: #ffffff;
+$gray-1: #f3f3f3;
+$gray-2: #dfdfdf;
+$gray-3: #313131;
+$black: #000000;
+//Fonts
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height:1.2;
+  font-weight:800;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+  @include on-event {
+    color: $secondary-color;
+  }
+}

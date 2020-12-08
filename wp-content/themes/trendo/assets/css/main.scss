@@ -1,0 +1,54 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+'sass/abstracts/variables',
+'sass/abstracts/functions',
+'sass/abstracts/placeholders',
+'sass/abstracts/mixins';
+
+// 2. Vendors
+@import
+'sass/vendors/normalize',
+'sass/vendors/fontawesome/font-awesome.scss',
+'sass/vendors/slick',
+'sass/vendors/animate';
+
+// 3. Base stuff
+@import
+'sass/base/reset',
+'sass/base/base',
+'sass/base/fonts',
+'sass/base/typography';
+
+// 4. Themes
+@import
+'sass/themes/default',
+'sass/themes/trendo';
+
+// 5. Layout-related sections
+@import
+'sass/layout/header',
+'sass/layout/navigation',
+'sass/layout/pagination',
+'sass/layout/breadcrumb',
+'sass/layout/footer',
+'sass/layout/pageheader';
+
+// 6. Components
+@import
+'sass/components/widgets',
+'sass/components/button',
+'sass/components/form';
+
+// 7. Page-specific styles
+@import
+'sass/pages/home',
+'sass/pages/content',
+'sass/pages/news',
+'sass/pages/vacancies',
+'sass/pages/activities',
+'sass/pages/woocommerce',
+'sass/pages/products',
+'sass/pages/contact';
+

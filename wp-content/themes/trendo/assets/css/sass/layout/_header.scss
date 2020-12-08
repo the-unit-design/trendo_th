@@ -1,0 +1,196 @@
+.main-header {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background-color: $white;
+  @include break-up(lg) {
+    position: fixed;
+    top:0;
+  }
+  .logo-container {
+    text-align:center;
+    font-size:0;
+  }
+  &__top {
+    position: relative;
+    background-color: $gray-2;
+    color: $primary-color;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    &__usps {
+      &__item {
+        margin-right: 15px;
+        padding: 2px 0;
+        &__icon {
+          display: inline-block;
+          float: left;
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          margin-right: 5px;
+          text-align: center;
+          img {
+            width: 14px;
+          }
+        }
+        &__title {
+          display: inline-block;
+          float: left;
+          padding-top: 2px;
+          font-weight: 400;
+        }
+      }
+    }
+    &__fbcw {
+      .__fbcw {
+        &__bar-widget {
+          height: 24px !important;
+          padding: 0 !important;
+          &__score {
+            font-size: remy(16);
+            font-weight: bold;
+          }
+          &__stars {
+            width: 75px !important;
+            margin: -2px 10px 0 !important;
+            .__fbcw__star {
+              max-height: 15px !important;
+              polygon {
+                fill: $secondary-color;
+              }
+            }
+          }
+          &__amount-of-reviews {
+            font-size: remy(14);
+            color: $white !important;
+            font-weight: bold;
+          }
+          &__feedback-company-branding {
+            height: 14px;
+          }
+          &__feedback-company-logo {
+            max-height: 16px !important;
+          }
+        }
+      }
+    }
+  }
+  &__logo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    a {
+      display: block;
+      color: $white;
+
+      svg {
+        height: remy(60);
+        width: auto;
+      }
+
+      span {
+        @include break-up(md) {
+          color: $white;
+        }
+      }
+    }
+    &__title {
+      display: block;
+      line-height: 1;
+      text-transform: uppercase;
+      font-size: remy(30);
+      line-height: 24px;
+      font-weight: 500;
+      color: $primary-color;
+      vertical-align: top;
+      @include break-up(md) {
+        display: inline-block;
+      }
+      span {
+        font-size: 21px;
+        font-weight: normal;
+      }
+    }
+
+    &__tagline {
+      display: block;
+      line-height: 1;
+      text-transform: uppercase;
+      font-size: remy(15);
+      color: #a0a0a0;
+      padding-top: remy(8);
+      vertical-align: top;
+      @include break-up(md) {
+        display: inline-block;
+        padding-top: remy(24);
+      }
+    }
+  }
+  &__contact {
+    text-align: center;
+    padding-top: 20px;
+    &-container {
+      @include break-up(md) {
+        display:inline-block;
+      }
+    }
+    &__title {
+      text-align: center;
+      margin-bottom: 0;
+      font-weight:bold;
+      color:$primary-color;
+      @include break-up(md) {
+        text-align: left;
+      }
+    }
+    li {
+      display:block;
+      width:100%;
+      margin: 0 15px;
+      margin-bottom: 15px;
+      @include break-up(md) {
+        display: list-item;
+        width:auto;
+      }
+      a {
+        display: inline-block;
+        color: $white;
+        font-weight: bold;
+        padding: 0 !important;
+        margin-top: 0;
+        text-align:left;
+        font-size: remy(20);
+        font-weight: 800;
+        width: 280px;
+        background-color: transparentize($secondary-color, 0.2);
+        @include border-radius(5px);
+        @include break-up(md) {
+          display: inline-block;
+          @include border-radius(0);
+        }
+        i {
+          color: $white;
+          margin-right: 15px;
+          padding: 15px 0;
+          width: 50px;
+          text-align: center;
+          background-color: $primary-color;
+        }
+        @include on-event {
+          text-decoration: none;
+          color: $white;
+          background-color: lighten($secondary-color, 10%) !important;
+        }
+      }
+    }
+  }
+  &__navigation {
+    position: relative;
+    @include break-up(lg) {
+      padding-top: 28px;
+      padding-bottom: 0;
+    }
+    @include break-up(xl) {
+      padding-top: 35px;
+    }
+  }
+}

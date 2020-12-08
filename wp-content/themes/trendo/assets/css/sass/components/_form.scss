@@ -1,0 +1,72 @@
+/* Gravity forms */
+.gform_wrapper {
+  margin: 0 !important;
+  .gform_fields {
+    input, textarea {
+      border: 1px solid $gray-2;
+      padding: 13px 20px !important;
+      font-size: remy(14) !important;
+    }
+    textarea {
+      height: 160px !important;
+    }
+    .input-custom {
+      width: calc(100%/2);
+      float: left;
+      clear: none;
+      padding: 30px;
+      margin-top: 0;
+      @include break-up(lg) {
+        width: calc(100%/3);
+      }
+      &:first-child {
+        padding-left: 0;
+        width: 100%;
+        padding-bottom: 0;
+        @include break-up(lg) {
+          padding-bottom: 30px;
+          width: calc(100%/3);
+        }
+      }
+      &:nth-child(2) {
+        padding-left: 0;
+        @include break-up(lg) {
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+  .ginput_container {
+    margin-top: 0 !important;
+  }
+  .hidden_label input {
+    margin-top: 0 !important;
+  }
+  .gfield {
+    padding-right: 0 !important;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .half-col {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    clear: none !important;
+    &--left {
+      padding-right:8px !important;
+    }
+    &--right {
+      padding-left:8px;
+      float: none;
+    }
+  }
+  .gform_button {
+    @extend .btn;
+    @extend .btn--secondary;
+  }
+  .gform_footer {
+    margin: 0 !important;
+    text-align: center;
+  }
+}

@@ -1,0 +1,9 @@
+/* Stylesheet for eveything according to posts */
+/* Blog | Archive */
+.blog {
+  &__post {
+    &-container {
+      display: block;
+    }
+  }
+}

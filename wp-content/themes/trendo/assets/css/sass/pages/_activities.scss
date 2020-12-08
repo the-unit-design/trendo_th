@@ -1,0 +1,41 @@
+/* Activities - Overview */
+.activities-overview {
+  &__item {
+    display: block;
+    @include on-event() {
+      text-decoration: none;
+    }
+    &__image-container {
+      @include border-radius(15px);
+      border: 10px solid black;
+      overflow: hidden;
+      margin-bottom: 5px;
+      &--inside {
+        background-color: #f9b256;
+        border-color: #f39200;
+        .activity__title span {
+          background-color: #f39200;
+        }
+      }
+      &--outside {
+        background-color: $primary-counter-color;
+        border-color: $primary-color;
+        .activity__title span {
+          background-color: $primary-color;
+        }
+      }
+      &--location {
+        background-color: #0069b4;
+        border-color: #488ccb;
+        .activity__title span {
+          background-color: #488ccb;
+        }
+      }
+    }
+    &__title {
+      font-size: remy(22);
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+}

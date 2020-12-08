@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+/// Regular font family
+/// @type List
+$text-font-base-size: 14px;
+$rem-base-size: 14;
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+// Responsive Break Points
+$break-sm-up: 568px;
+$break-md-up: 768px;
+$break-lg-up: 992px;
+$break-xl-up: 1200px;
+
+$break-sm-down: 567px;
+$break-md-down: 767px;
+$break-lg-down: 991px;
+$break-xl-down: 1199px;

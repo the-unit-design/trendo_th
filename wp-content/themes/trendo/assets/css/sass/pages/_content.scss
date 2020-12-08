@@ -1,0 +1,210 @@
+body {
+  @include break-up(lg) {
+    padding-top:169px;
+  }
+}
+
+.article {
+  &__header {
+    @include background-cover(center, center);
+    &__overlay {
+      position: relative;
+      background-color: transparentize($test-color, 0.4);
+      h1 {
+        @include responsive-margin(top, 10, 1);
+        @include responsive-margin(bottom, 1, 1);
+        color: $quarternary-color;
+        @include break-down(sm) {
+          margin-top: 10rem;
+        }
+      }
+    }
+  }
+  &__content {
+    @include responsive-margin(top, 1.5, 1);
+    @include responsive-margin(bottom, 1.5, 1);
+  }
+}
+.page-content {
+  @include responsive-margin(bottom, 2, 1);
+  &__article {
+    &__header {
+      position: relative;
+      height:remy(400);
+      @include background-cover(center, center);
+      @include responsive-margin(bottom, 2, 1);
+      .container, .row, div[class^="col"] {
+        height:100%;
+      }
+      &--homepage {
+        height: remy(568);
+        h1 {
+          text-align: center !important;
+          font-size: remy(48) !important;
+          @include break-down(sm) {
+            font-size: remy(36) !important;
+          }
+        }
+      }
+      h1 {
+        position:absolute;
+        bottom:remy(60);
+        color: $quarternary-color;
+        font-size:remy(40);
+        text-align:center;
+        padding-right:remy(15);
+        @include break-up(sm) {
+          text-align:left;
+        }
+        @include break-up(md) {
+          font-size:remy(60);
+        }
+      }
+    }
+    &__content {
+      a {
+        color: $secondary-color;
+        @include on-event {
+          color: $primary-color;
+        }
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: remy(15);
+      }
+    }
+  }
+}
+
+/* Section - Cta */
+.cta {
+  position: relative;
+  z-index: 20;
+  overflow: visible;
+  &__title {
+    font-size: remy(32);
+    line-height: remy(42);
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: remy(24);
+    padding:0 3rem;
+  }
+  &__content {
+    color: $white;
+  }
+  &__container {
+    &--right {
+      padding-left: 30px;
+      border-left: 1px solid transparentize($white, 0.5);
+    }
+  }
+  .nav {
+    &-item {
+
+    }
+    &-link {
+      font-size: remy(16);
+      line-height:30px;
+      font-weight: bold;
+      @include break-up(sm) {
+        font-size: remy(18);
+      }
+      @include break-up(lg) {
+        font-size: remy(24);
+      }
+      @include break-up(xl) {
+        font-size: remy(24);
+      }
+      i {
+        margin-right: 10px;
+        color: $secondary-color;
+      }
+    }
+  }
+  .widget {
+    margin-bottom: -100px;
+    padding:0;
+  }
+}
+
+.employees {
+  .section__title {
+    margin-bottom: 30px;
+  }
+  .employee {
+    color: $white;
+    margin-bottom: 30px;
+    &__image {
+      img {
+        max-width: 250px;
+        @include border-radius(50%);
+      }
+    }
+    &__name {
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+    &__title {
+
+    }
+  }
+}
+/* Social Media */
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:inline-block;
+  li {
+    display: inline-block;
+    margin-right: 5px;
+    a {
+      font-size: remy(20);
+      line-height: 38px;
+      background-color: transparent;
+      color: $primary-color;
+      width: 40px;
+      padding:0;
+      border: 1px solid $primary-color;
+      text-align: center;
+      @include on-event {
+        background-color: $primary-color;
+        color: $white;
+        text-decoration: none;
+        border-color: $primary-color;
+      }
+    }
+  }
+  &.social-media--dark {
+    a {
+      background-color: $primary-color;
+      color: $white;
+      border-color: $primary-color;
+      @include on-event {
+        background-color: $white;
+        color: $primary-color;
+        text-decoration: none;
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+::-moz-selection {
+  color: $white;;
+  background: $primary-color;
+}
+
+::selection {
+  color: $white;;
+  background: $primary-color;
+}
+/* Section - Google map */
+.googlemap {
+  position: relative;
+  width: 100%;
+  height:400px;
+}

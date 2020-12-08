@@ -1,0 +1,103 @@
+.btn {
+  border-width: remy(2);
+  border-bottom-style: solid;
+  padding: remy(12) remy(16);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  @include border-radius(0);
+  text-transform: uppercase;
+  &--full {
+    display: block;
+  }
+  &--primary {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
+    @include on-event {
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+      color: $white;
+    }
+    &.active {
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+  &--secondary {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    color: $white !important;
+    @include on-event {
+      border-color: $primary-color;
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
+    &.active {
+      border-color: $primary-color;
+      background-color: $primary-color;
+      color: $white;
+      box-shadow: none;
+    }
+  }
+  &--tertiary {
+    border-color: $tertiary-color;
+    background-color: $tertiary-color;
+    color: $quarternary-color;
+    @include on-event {
+      border-color: $primary-color;
+      background-color: $primary-color;
+      color: $quarternary-color;
+    }
+    &.active {
+      border-color: $primary-color;
+      background-color: $primary-color;
+      color: $quarternary-color;
+      box-shadow: none;
+    }
+  }
+  &--transparent {
+    border-color: $black;
+    background-color: transparent;
+    color: $black;
+    @include on-event {
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+      color: $white;
+    }
+    &.active {
+      border-color: $secondary-color;
+      background-color: $secondary-color;
+      color: $white;
+    }
+  }
+  &--transparent-primary {
+    border-color: $white;
+    background-color: transparent;
+    color: $white;
+    @include on-event {
+      border-color: $white;
+      background-color: $white !important;
+      color: $primary-color;
+    }
+    &.active {
+      border-color: $white;
+      background-color: $white !important;
+      color: $primary-color;
+    }
+  }
+}
+
+// Woocommerce styles
+
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  background-color: $primary-color;
+  @include on-event {
+    background-color: lighten($primary-color, 10%);
+  }
+}

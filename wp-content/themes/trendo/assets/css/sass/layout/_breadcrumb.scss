@@ -1,0 +1,16 @@
+.breadcrumbs {
+  padding: 5px 0;
+  background-color: $gray-1;
+  margin-bottom: 30px;
+  font-size: remy(12);
+  p {
+    margin: 0;
+  }
+  a, span {
+    color: $secondary-color;
+
+    &.breadcrumb_last {
+      color: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.facetwp-pager {
+  .facetwp-page {
+    display: inline-block;
+    line-height: 40px;
+    width:40px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    @include on-event {
+      background-color:$gray-1;
+    }
+    &.active {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+// Color scheme
+$primary-color: #b7d167;
+$primary-counter-color: #68b788;
+$secondary-color: #388E3C;
+$tertiary-color: #fccb8d;
+$quarternary-color: #FFFFFF;
+$test-color: #000113;
+
+$gray-1: #f3f3f3;
+$gray-2: #313131;
+$black: #000000;
+//Fonts
+html, body {
+  font-family: fira-sans, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height:1.2;
+  font-weight: bold;
+}
+
+h1 {
+  font-size:remy(30);
+  @include break-up(md) {
+    font-size:remy(60);
+  }
+}
+
+h2 {
+  font-size: remy(24);
+  color: $secondary-color;
+}
+h3 {
+  font-size: remy(20);
+  color: $secondary-color;
+}
+a {
+  color: $secondary-color;
+  @include on-event {
+    color: $primary-color;
+  }
+}

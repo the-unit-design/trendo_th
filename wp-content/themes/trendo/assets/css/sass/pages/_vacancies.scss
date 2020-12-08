@@ -1,0 +1,150 @@
+// Overview
+.vacancies {
+  @include responsive-margin(bottom, 2, 1);
+  &__item {
+    position:relative;
+    @include responsive-margin(bottom, 1.5, 2);
+    &__image {
+      background-color: $tertiary-color;
+      height:125px;
+      @include break-up(sm) {
+        height:150px;
+      }
+      @include break-up(md) {
+        height:175px;
+      }
+      @include break-up(lg) {
+        height:200px;
+      }
+      @include break-up(xl) {
+        height:225px;
+      }
+      @include background-cover(center, center);
+      &.no-cover {
+        -webkit-background-size: auto;
+        -moz-background-size: auto;
+        -o-background-size: auto;
+        background-size: 100px;
+      }
+    }
+    &__title {
+      position: relative;
+      font-size: remy(17);
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 20px 20px 0 20px;
+      margin-top: remy(17);
+      margin-bottom: remy(20);
+      color: $primary-color;
+      a {
+        display: block;
+        color: $primary-color;
+        @include on-event {
+          text-decoration: none;
+        }
+      }
+      &__extra {
+        position: absolute;
+        left:20px;
+        bottom:100%;
+        display: inline-block;
+        background-color: $secondary-color;
+        font-size: remy(15);
+        text-transform: none;
+        color: $quarternary-color;
+        font-weight:normal;
+        padding: 8px 15px;
+      }
+    }
+    &__content {
+      font-size: remy(15);
+      padding:0 20px;
+      &__info {
+        display: inline-block;
+        padding-left: remy(30);
+        padding-right: remy(10);
+        line-height: remy(22);
+        background-position: left center;
+        background-repeat: no-repeat;
+        &:last-child {
+          padding-right: 0;
+        }
+        &--location {
+          background-image: url("../images/icon-location.svg");
+          padding-left: remy(20);
+        }
+        &--hours {
+          background-image: url("../images/icon-hours.svg");
+          padding-left: remy(28);
+        }
+        &--education {
+          background-image: url("../images/icon-education.svg");
+          padding-left: remy(30);
+        }
+      }
+    }
+  }
+}
+
+// Detail
+.vacancy {
+  &__content {
+    h2 {
+      font-size: remy(17);
+      font-weight: 300;
+      text-transform: uppercase;
+      color: $primary-color;
+      margin-bottom: remy(20);
+      margin-top: remy(50);
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .card-header {
+      padding:0;
+      h2 {
+        text-transform: none;
+        .btn {
+          display:block;
+          width:100%;
+          white-space: normal;
+          text-transform: none;
+          text-align: left;
+          &-link {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+  &__cta {
+    &__content {
+      padding: 0 20px 20px 20px;
+      &__info {
+        font-size: remy(15);
+        display: inline-block;
+        padding-left: remy(30);
+        padding-right: remy(10);
+        line-height: remy(22);
+        margin-bottom: 20px;
+        background-position: left center;
+        background-repeat: no-repeat;
+        &:last-child {
+          padding-right: 0;
+        }
+        &--location {
+          background-image: url("../images/icon-location.svg");
+          padding-left: remy(20);
+        }
+        &--hours {
+          background-image: url("../images/icon-hours.svg");
+          padding-left: remy(28);
+        }
+        &--education {
+          background-image: url("../images/icon-education.svg");
+          padding-left: remy(30);
+        }
+      }
+    }
+  }
+}
