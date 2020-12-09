@@ -2,6 +2,9 @@ body {
   @include break-up(lg) {
     padding-top:169px;
   }
+  @include break-up(xl) {
+    padding-top:193px;
+  }
 }
 
 .article {

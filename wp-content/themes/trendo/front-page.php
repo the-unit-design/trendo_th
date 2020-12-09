@@ -54,6 +54,11 @@ if ($backgroundImg) {
 -->
 <article class="article">
     <div class="teaser">
+
+            <div class="teaser__content">
+                <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/header-example.jpg" alt="" />
+            </div>
+        <!--
         <div class="container">
             <div class="teaser__slider">
                 <div class="div">
@@ -64,11 +69,12 @@ if ($backgroundImg) {
                 </div>
             </div>
         </div>
+        -->
     </div>
     <section class="section categories">
         <div class="container">
             <?php echo do_shortcode('[product_categories number="0" parent="0"]'); ?>
-            <h2 class="text-center">Bekijk hier de collectie</h2>
+            <h2 class="section__title text-center">Bekijk hier de collectie</h2>
             <?php
             $orderby = 'name';
             $order = 'asc';
@@ -82,14 +88,14 @@ if ($backgroundImg) {
             $product_categories = get_terms( 'product_cat', $cat_args );
 
             if( !empty($product_categories) ){
-                echo '<div class="row">';
+                echo '<div class="row justify-content-center">';
                 foreach ($product_categories as $key => $category) {
                     $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
 
-                    echo '<div class="col-md-3">';
+                    echo '<div class="col-md-4">';
                     echo '<a class="categories__item" href="'.get_term_link($category).'" >';
                     echo '<figure class="categories__item__image">';
-                    echo wp_get_attachment_image( $thumbnail_id,array(380,260),"", array( "class" => "img-fluid" ) );
+                    echo wp_get_attachment_image( $thumbnail_id,array(600,400),"", array( "class" => "img-fluid" ) );
                     echo '</figure>';
                     echo '<div class="categories__item__content">';
                     echo '<h3 class="categories__item__content__title">' . $category->name . '</h3>';
@@ -102,9 +108,9 @@ if ($backgroundImg) {
             ?>
         </div>
     </section>
-    <section class="section extra-services">
+    <section class="section blog">
         <div class="container">
-            <h2 class="text-center">Inspiratie</h2>
+            <h2 class="section__title text-center">Inspiratie</h2>
             <?php
             $taxonomies = get_terms( array(
             'taxonomy' => 'category',
@@ -114,13 +120,27 @@ if ($backgroundImg) {
 
             if ( !empty($taxonomies) ) :
                 echo '<div class="row">';
+                $counter = 1;
+                $category_images = array("1", "635", "1060", "836", "42");
             foreach( $taxonomies as $category ) {
                 $term_link = get_term_link( $category );
-                echo '<div class="col-md-3" title="'.$term_link.'"><figure><img class="img-fluid" src="https://picsum.photos/640/480?image=0" alt=""></figure>';
-                echo $category->name;
-                echo '</div>';
+                if ( $counter == 1 || $counter == 2) {
+                    $blogclass = "col-md-2";
+                    $blocktype = "blog__category--small";
+                } else {
+                    $blogclass = "col-md-4";
+                    $blocktype = "blog__category--big";
+                }
+                echo '<div class="' . $blogclass . '" title="' . $category_images[$counter] . '"><a class="blog__category ' . $blocktype . '" href="'.$term_link.'"><figure class="blog__category__image"><img class="img-fluid" src="https://picsum.photos/640/480?image=' . $category_images[$counter] . '" alt=""></figure>';
+                    echo '<div class="blog__category__content">';
+                        echo '<h4 class="blog__category__content__title">' . $category->name . '</h4>';
+                        echo '<p class="blog__category__content__text">Hier komt een stukje tekst met uitleg.</p>';
+                    echo '</div>';
+                echo '</a></div>';
+                $counter++;
             }
                 echo '</div>';
+
             endif;
             ?>
         </div>

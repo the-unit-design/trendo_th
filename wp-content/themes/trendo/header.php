@@ -40,7 +40,7 @@
                         while( have_rows('tpl_option_usps','option') ) : the_row();
                             $uspTitle = get_sub_field('tpl_option_usps_title','option');
                             $uspIcon = get_sub_field('tpl_option_usps_icon','option');
-                            echo '<li class="main-header__top__usps__item" style="font-size: 12px;"><span class="main-header__top__usps__item__icon"><img class="img-fluid" src="'. get_template_directory_uri() .'/assets/images/check.svg"></span><span class="main-header__top__usps__item__title">' . $uspTitle . '</span></li>';
+                            echo '<li class="main-header__top__usps__item"><span class="main-header__top__usps__item__icon"><svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M369.16,174.77a20,20,0,0,1,0,28.28L235,337.23a20,20,0,0,1-28.28,0l-63.87-63.87a20,20,0,0,1,28.28-28.29l49.73,49.73,120-120A20,20,0,0,1,369.16,174.77ZM512,256c0,141.5-114.52,256-256,256S0,397.48,0,256,114.52,0,256,0,512,114.52,512,256Zm-40,0A216,216,0,1,0,256,472,215.88,215.88,0,0,0,472,256Z"/></svg></span><span class="main-header__top__usps__item__title">' . $uspTitle . '</span></li>';
                         endwhile;
                     ?>
                     </ul>
@@ -78,6 +78,20 @@
     <div class="main-header__content">
         <div class="container">
             <div class="row justify-content-between">
+                <div class="col-md-4 logo-container">
+                    <div class="main-header__logo">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_field('tpl_option_companyname-long','option'); ?>" rel="home">
+                            <?php
+                            $logoimage = get_field('tpl_option_logo','option');
+                            $logosize = 'medium'; // (thumbnail, medium, large, full or custom size)
+                            if( $logoimage ) {
+                                echo wp_get_attachment_image( $logoimage, $logosize, "", array( "class" => "img-fluid" ) );
+                            }
+                            echo get_field('tpl_option_companyname-long','option');
+                            ?>
+                        </a>
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <nav class="main-navigation navbar navbar-expand-lg navbar-light">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,20 +112,6 @@
                         ?>
                     </nav>
                 </div>
-                <div class="col-md-4 logo-container">
-                    <div class="main-header__logo">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo get_field('tpl_option_companyname-long','option'); ?>" rel="home">
-                            <?php
-                            $logoimage = get_field('tpl_option_logo','option');
-                            $logosize = 'medium'; // (thumbnail, medium, large, full or custom size)
-                            if( $logoimage ) {
-                                echo wp_get_attachment_image( $logoimage, $logosize, "", array( "class" => "img-fluid" ) );
-                            }
-                            echo get_field('tpl_option_companyname-long','option');
-                            ?>
-                        </a>
-                    </div>
-                </div>
                 <div class="col-md-4 main-header__contact">
                     <div class="main-header__contact-container">
                         icons
@@ -125,7 +125,7 @@
     <div class="category-navigation">
         <div class="container">
             <nav>
-                <ul class="nav">
+                <ul class="nav justify-content-center">
                     <?php
 
                     $orderby = 'name';

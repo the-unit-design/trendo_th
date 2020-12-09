@@ -13,24 +13,28 @@
   }
   &__top {
     position: relative;
-    background-color: $gray-2;
-    color: $primary-color;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    background-color: $primary-color;
+    color: $white;
+    padding-top: 8px;
+    padding-bottom: 8px;
     &__usps {
       &__item {
-        margin-right: 15px;
-        padding: 2px 0;
+        margin-right: 20px;
+        line-height: 20px;
+        font-size: remy(14);
         &__icon {
           display: inline-block;
           float: left;
           width: 20px;
           height: 20px;
           line-height: 20px;
-          margin-right: 5px;
+          margin-right: 8px;
           text-align: center;
           img {
             width: 14px;
+          }
+          svg {
+            fill: $white;
           }
         }
         &__title {
@@ -38,6 +42,7 @@
           float: left;
           padding-top: 2px;
           font-weight: 400;
+          text-transform: uppercase;
         }
       }
     }
@@ -81,7 +86,7 @@
     a {
       display: block;
       color: $white;
-
+      text-align: left;
       svg {
         height: remy(60);
         width: auto;

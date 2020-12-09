@@ -152,7 +152,10 @@
 .category-navigation {
   background-color: $gray-2;
   a {
-    padding: 8px 15px !important;
-    text-transform: lowercase;
+    font-size: remy(16);
+    font-weight: bold;
+    line-height: 45px;
+    padding: 0 25px !important;
+    text-transform: uppercase;
   }
 }
