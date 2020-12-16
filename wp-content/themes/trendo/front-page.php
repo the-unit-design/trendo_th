@@ -108,43 +108,6 @@ if ($backgroundImg) {
             ?>
         </div>
     </section>
-    <section class="section blog">
-        <div class="container">
-            <h2 class="section__title text-center">Inspiratie</h2>
-            <?php
-            $taxonomies = get_terms( array(
-            'taxonomy' => 'category',
-            'parent'    => 1,
-            'hide_empty' => false
-            ) );
-
-            if ( !empty($taxonomies) ) :
-                echo '<div class="row">';
-                $counter = 1;
-                $category_images = array("1", "635", "1060", "836", "42");
-            foreach( $taxonomies as $category ) {
-                $term_link = get_term_link( $category );
-                if ( $counter == 1 || $counter == 2) {
-                    $blogclass = "col-md-2";
-                    $blocktype = "blog__category--small";
-                } else {
-                    $blogclass = "col-md-4";
-                    $blocktype = "blog__category--big";
-                }
-                echo '<div class="' . $blogclass . '" title="' . $category_images[$counter] . '"><a class="blog__category ' . $blocktype . '" href="'.$term_link.'"><figure class="blog__category__image"><img class="img-fluid" src="https://picsum.photos/640/480?image=' . $category_images[$counter] . '" alt=""></figure>';
-                    echo '<div class="blog__category__content">';
-                        echo '<h4 class="blog__category__content__title">' . $category->name . '</h4>';
-                        echo '<p class="blog__category__content__text">Hier komt een stukje tekst met uitleg.</p>';
-                    echo '</div>';
-                echo '</a></div>';
-                $counter++;
-            }
-                echo '</div>';
-
-            endif;
-            ?>
-        </div>
-    </section>
     <div class="container">
         <div class="article__content">
             <div class="row justify-content-between">
@@ -152,36 +115,25 @@ if ($backgroundImg) {
             </div>
         </div>
     </div>
-    <section class="section services">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section__title">Wat we doen</h2>
-                </div>
-            </div>
-            <?php if( have_rows('tpl_option_services', 'option') ): ?>
-            <div class="row justify-content-center">
-                <?php while( have_rows('tpl_option_services', 'option') ): the_row();
-                    ?>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="service">
-                            <h3 class="service__title"><i class="fa fa-wrench"></i><?php the_sub_field('tpl_option_services_service'); ?></h3>
-                            <!--<p>Hier komt een korte omschrijving van de dienst</p>-->
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            </div>
-            <?php endif; ?>
-        </div>
-    </section>
     <section class="section bg-gray1 about-us">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-md-8">
+                <div class="col-md-6">
+                    <div class="about-us__shop">
+                        <figure class="about-us__shop__image">
+                            <img class="img-fluid" src="https://picsum.photos/640/480?image=1060" alt="" />
+                        </figure>
+                        <div class="about-us__shop__content">
+                            <h2 class="about-us__shop__content__title">TRENDO LIVING ROERMOND</h2>
+                            <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
+                            <a class="btn btn--primary" href="#">Contact en openingstijden</a>
+                        </div>
+                    </div>
+
                     <?php
+                    /*
                     if ( have_posts() ) :
 
-                        /* Start the Loop */
                         while ( have_posts() ) : the_post();
                             ?>
                             <header>
@@ -192,20 +144,66 @@ if ($backgroundImg) {
                         endwhile;
 
                     endif;
+                    */
                     ?>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <?php
-                    $profileimage = get_field('tpl_option_profileimage','option');
-                    $profilesize = 'medium'; // (thumbnail, medium, large, full or custom size)
-                    if( $profileimage ) {
-                        echo wp_get_attachment_image( $profileimage, $profilesize, "", array( "class" => "about-us__profileimage img-fluid" ));
-                    }
-                    ?>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            1600 M2 SHOWROOM
+                        </div>
+                        <div class="col-md-6">
+                            NEDERLAND, BELGIË, DUITSLAND
+                        </div>
+                        <div class="col-md-6">
+                            PERSOONLIJK ADVIES
+                        </div>
+                        <div class="col-md-6">
+                            LIFESTYLE MEUBELEN
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="section blog">
+        <div class="container">
+            <h2 class="section__title text-center">Inspiratie</h2>
+            <?php
+            $taxonomies = get_terms( array(
+                'taxonomy' => 'category',
+                'parent'    => 1,
+                'hide_empty' => false
+            ) );
+
+            if ( !empty($taxonomies) ) :
+                echo '<div class="row">';
+                $counter = 1;
+                $category_images = array("1", "635", "1060", "836", "42");
+                foreach( $taxonomies as $category ) {
+                    $term_link = get_term_link( $category );
+                    if ( $counter == 1 || $counter == 2) {
+                        $blogclass = "col-md-2";
+                        $blocktype = "blog__category--small";
+                    } else {
+                        $blogclass = "col-md-4";
+                        $blocktype = "blog__category--big";
+                    }
+                    echo '<div class="' . $blogclass . '" title="' . $category_images[$counter] . '"><a class="blog__category ' . $blocktype . '" href="'.$term_link.'"><figure class="blog__category__image"><img class="img-fluid" src="https://picsum.photos/640/480?image=' . $category_images[$counter] . '" alt=""></figure>';
+                    echo '<div class="blog__category__content">';
+                    echo '<h4 class="blog__category__content__title">' . $category->name . '</h4>';
+                    echo '<p class="blog__category__content__text">Hier komt een stukje tekst met uitleg.</p>';
+                    echo '</div>';
+                    echo '</a></div>';
+                    $counter++;
+                }
+                echo '</div>';
+
+            endif;
+            ?>
+        </div>
+    </section>
+    <!--
     <section class="section cta">
         <div class="container">
             <div class="row justify-content-center">
@@ -216,6 +214,7 @@ if ($backgroundImg) {
             </div>
         </div>
     </section>
+    -->
 </article>
 
 <?php get_footer(); ?>

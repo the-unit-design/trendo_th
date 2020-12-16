@@ -254,6 +254,32 @@
 }
 /* Section - About us */
 .about-us {
+  position: relative;
+  z-index: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    background-color: $white;
+    top:0;
+    left:0;
+    z-index: -1;
+  }
+  &__shop {
+    &__image {
+      margin-bottom: 0;
+    }
+    &__content {
+      background-color: $white;
+      padding: 30px;
+      &__title {
+        font-size: remy(30);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
   &__profileimage {
     border-radius: 50%;
     border: 8px solid $secondary-color;

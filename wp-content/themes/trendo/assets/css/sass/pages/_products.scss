@@ -4,15 +4,41 @@
     background-color: $white;
     margin-bottom: 30px;
     @include box-shadow(0, 10px, 40px, -20px, transparentize($black, 0.8));
+    @include on-event() {
+      .categories__item {
+        &__content {
+          &__title {
+            &:after {
+              background-color: $black;
+              color: $white;
+            }
+          }
+        }
+      }
+    }
     &__image {
       margin-bottom: 0;
     }
     &__content {
       padding: 20px;
       &__title {
+        position: relative;
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 0;
+        &:after {
+          content: '\f054';
+          font-family: FontAwesome;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 24px;
+          height: 24px;
+          border: 2px solid $black;
+          font-size: 12px;
+          text-align: center;
+          line-height: 22px;
+        }
       }
     }
   }
