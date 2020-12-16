@@ -143,7 +143,7 @@
 
                     if( !empty($product_categories) ){
                         foreach ($product_categories as $key => $category) {
-                            $thumbnail_id = getŒ_term_meta( $category->term_id, 'thumbnail_id', true );
+                            $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
 
                             echo '<li class="nav-item">';
                             echo '<a class="nav-link" href="'.get_term_link($category).'" >';
