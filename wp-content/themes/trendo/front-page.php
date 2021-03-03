@@ -73,13 +73,13 @@ if ($backgroundImg) {
     </div>
     <section class="section categories">
         <div class="container">
-            <?php echo do_shortcode('[product_categories number="0" parent="0"]'); ?>
             <h2 class="section__title text-center">Bekijk hier de collectie</h2>
             <?php
             $orderby = 'name';
             $order = 'asc';
-            $hide_empty = false ;
+            $hide_empty = true ;
             $cat_args = array(
+                'parent'     => 0,
                 'orderby'    => $orderby,
                 'order'      => $order,
                 'hide_empty' => $hide_empty,
@@ -121,7 +121,7 @@ if ($backgroundImg) {
                 <div class="col-md-6">
                     <div class="about-us__shop">
                         <figure class="about-us__shop__image">
-                            <img class="img-fluid" src="https://picsum.photos/640/480?image=1060" alt="" />
+                            <img class="img-fluid" src="https://picsum.photos/750/560?image=1060" alt="" />
                         </figure>
                         <div class="about-us__shop__content">
                             <h2 class="about-us__shop__content__title">TRENDO LIVING ROERMOND</h2>
