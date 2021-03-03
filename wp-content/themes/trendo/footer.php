@@ -15,6 +15,29 @@
                 </div>
                 <div class="col-md-3">
                     <p class="main-footer__content__title">Inspiratie</p>
+                    <?php
+                    $taxonomies = get_terms( array(
+                        'taxonomy' => 'category',
+                        'parent'    => 1,
+                        'hide_empty' => false
+                    ) );
+
+                    if ( !empty($taxonomies) ) :
+                        echo '<ul>';
+                        $counter = 1;
+                        $category_images = array("1", "635", "1060", "836", "42");
+                        foreach( $taxonomies as $category ) {
+                            $term_link = get_term_link( $category );
+
+                            echo '<li><a class="blog__category ' . $blocktype . '" href="'.$term_link.'">';
+                            echo $category->name;
+                            echo '</a></li>';
+                            $counter++;
+                        }
+                        echo '</ul>';
+
+                    endif;
+                    ?>
                     <!--
                     <p class="main-footer__content__title">Openingstijden</p>
                     <?php
