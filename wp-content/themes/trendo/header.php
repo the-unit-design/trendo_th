@@ -111,7 +111,7 @@
 
                     $orderby = 'name';
                     $order = 'asc';
-                    $hide_empty = false;
+                    $hide_empty = true;
                     $parent = 0;
                     $cat_args = array(
                         'orderby'       => $orderby,
