@@ -73,11 +73,11 @@ if ($backgroundImg) {
     </div>
     <section class="section categories">
         <div class="container">
-            <h2 class="section__title text-center">Bekijk hier de collectie</h2>
+            <!--<h2 class="section__title text-center">Bekijk hier de collectie</h2>-->
             <?php
             $orderby = 'name';
             $order = 'asc';
-            $hide_empty = true ;
+            $hide_empty = false ;
             $cat_args = array(
                 'parent'     => 0,
                 'orderby'    => $orderby,
@@ -92,7 +92,7 @@ if ($backgroundImg) {
                 foreach ($product_categories as $key => $category) {
                     $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
 
-                    echo '<div class="col-md-4">';
+                    echo '<div class="col-md-4 col-xxl-2">';
                     echo '<a class="categories__item" href="'.get_term_link($category).'" >';
                     echo '<figure class="categories__item__image">';
                     echo wp_get_attachment_image( $thumbnail_id,array(600,400),"", array( "class" => "img-fluid" ) );
@@ -108,13 +108,50 @@ if ($backgroundImg) {
             ?>
         </div>
     </section>
-    <div class="container">
-        <div class="article__content">
-            <div class="row justify-content-between">
-
+    <section class="section promo">
+        <div class="container">
+            <div class="article__content">
+                <div class="row justify-content-between">
+                    <div class="col-md-4">
+                        <div class="promo__item">
+                            <figure class="promo__item__image">
+                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1060" alt="" />
+                            </figure>
+                            <div class="promo__item__content">
+                                <h2 class="promo__item__content__title">Maak een afspraak</h2>
+                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
+                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo__item">
+                            <figure class="promo__item__image">
+                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1061" alt="" />
+                            </figure>
+                            <div class="promo__item__content">
+                                <h2 class="promo__item__content__title">Razendsnel afhalen</h2>
+                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
+                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo__item">
+                            <figure class="promo__item__image">
+                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1062" alt="" />
+                            </figure>
+                            <div class="promo__item__content">
+                                <h2 class="promo__item__content__title">Bank aan huis</h2>
+                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
+                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <section class="section bg-gray1 about-us">
         <div class="container">
             <div class="row justify-content-between">

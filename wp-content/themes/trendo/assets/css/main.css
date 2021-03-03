@@ -5092,15 +5092,10 @@ a {
   background-color: #fff; }
   @media (min-width: 992px) {
     .main-header {
-      position: fixed;
       top: 0; } }
   @media (min-width: lg) {
     .main-header {
-      position: fixed;
       top: 0; } }
-  .main-header .logo-container {
-    text-align: center;
-    font-size: 0; }
   .main-header__top {
     position: relative;
     background-color: #2d2a2b;
@@ -5122,7 +5117,7 @@ a {
         .main-header__top__usps__item__icon img {
           width: 14px; }
         .main-header__top__usps__item__icon svg {
-          fill: #fff; }
+          fill: #2d2a2b; }
       .main-header__top__usps__item__title {
         display: inline-block;
         float: left;
@@ -5151,6 +5146,7 @@ a {
       .main-header__top__fbcw .__fbcw__bar-widget__feedback-company-logo {
         max-height: 16px !important; }
   .main-header__logo {
+    display: inline-block;
     margin-top: 15px;
     margin-bottom: 15px; }
     .main-header__logo a {
@@ -5200,6 +5196,14 @@ a {
         .main-header__logo__tagline {
           display: inline-block;
           padding-top: 1.3333333333rem; } }
+  .main-header__slogan {
+    display: inline-block;
+    font-weight: 300;
+    padding-left: 30px;
+    font-size: 1.3333333333rem; }
+    .main-header__slogan span {
+      font-weight: bold;
+      font-size: 1.6666666667rem; }
   .main-header__contact {
     text-align: center;
     padding-top: 20px; }
@@ -5286,6 +5290,8 @@ a {
     @media (min-width: 1200px) {
       .main-header__navigation {
         padding-top: 35px; } }
+  .main-header__bottom {
+    padding: 10px 0; }
 
 .main-navigation {
   margin-bottom: 0;
@@ -6423,6 +6429,18 @@ a {
         font-size: 0.8333333333rem;
         color: #FFFFFF; }
 
+/* Section - Promo */
+.promo__item {
+  background-color: #f5f5f5; }
+  .promo__item__image {
+    margin-bottom: 0; }
+  .promo__item__content {
+    padding: 20px; }
+    .promo__item__content__title {
+      font-size: 1.4444444444rem !important;
+      font-weight: bold;
+      text-transform: uppercase; }
+
 /* Section - About us */
 .about-us {
   position: relative;
@@ -6449,15 +6467,15 @@ a {
     border-radius: 50%;
     border: 8px solid #ff6800; }
 
-@media (min-width: 992px) {
-  body {
-    padding-top: 169px; } }
-@media (min-width: lg) {
-  body {
-    padding-top: 169px; } }
-@media (min-width: 1200px) {
-  body {
-    padding-top: 193px; } }
+body {
+  /*
+  @include break-up(lg) {
+    padding-top:169px;
+  }
+  @include break-up(xl) {
+    padding-top:193px;
+  }
+   */ }
 
 .article__header {
   background-repeat: no-repeat;

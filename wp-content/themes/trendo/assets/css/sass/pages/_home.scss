@@ -252,6 +252,23 @@
     }
   }
 }
+/* Section - Promo */
+.promo {
+  &__item {
+    background-color: $gray-2;
+    &__image {
+      margin-bottom: 0;
+    }
+    &__content {
+      padding: 20px;
+      &__title {
+        font-size: remy(26) !important;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
 /* Section - About us */
 .about-us {
   position: relative;

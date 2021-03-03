@@ -4,12 +4,12 @@
   width: 100%;
   background-color: $white;
   @include break-up(lg) {
-    position: fixed;
+    //position: fixed;
     top:0;
   }
   .logo-container {
-    text-align:center;
-    font-size:0;
+    //text-align:center;
+    //font-size:0;
   }
   &__top {
     position: relative;
@@ -34,7 +34,7 @@
             width: 14px;
           }
           svg {
-            fill: $white;
+            fill: $primary-color;
           }
         }
         &__title {
@@ -81,6 +81,7 @@
     }
   }
   &__logo {
+    display: inline-block;
     margin-top: 15px;
     margin-bottom: 15px;
     a {
@@ -128,6 +129,16 @@
         display: inline-block;
         padding-top: remy(24);
       }
+    }
+  }
+  &__slogan {
+    display: inline-block;
+    font-weight: 300;
+    padding-left: 30px;
+    font-size: remy(24);
+    span {
+      font-weight: bold;
+      font-size: remy(30);
     }
   }
   &__contact {
@@ -197,5 +208,8 @@
     @include break-up(xl) {
       padding-top: 35px;
     }
+  }
+  &__bottom {
+    padding: 10px 0;
   }
 }

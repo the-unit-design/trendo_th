@@ -11,9 +11,11 @@
                     <p class="main-footer__content__title">Klantenservice</p>
                 </div>
                 <div class="col-md-3">
-                    <p class="main-footer__content__title">Inspiratie</p>
+                    <p class="main-footer__content__title">Winkels</p>
                 </div>
                 <div class="col-md-3">
+                    <p class="main-footer__content__title">Inspiratie</p>
+                    <!--
                     <p class="main-footer__content__title">Openingstijden</p>
                     <?php
                         $hoursMonday = get_field('tpl_option_hours_monday', 'option');
@@ -110,8 +112,10 @@
                             </td>
                         </tr>
                     </table>
+                    -->
                 </div>
                 <div class="col-md-3">
+                    <!--
                     <p class="main-footer__content__title"><?php if (get_field('tpl_option_companyname', 'option')) { the_field('tpl_option_companyname', 'option'); } else { bloginfo('name'); } ?></p>
                     <p class="main-footer__content__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                         <?php if (get_field('tpl_option_address', 'option') != false) { echo "<span itemprop=\"streetAddress\">" . get_field('tpl_option_address', 'option') . '</span><br/>' ;} ?>
@@ -132,6 +136,7 @@
                         <?php if (get_field('tpl_option_pinterest', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_pinterest', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Youtube"><i class="fa fa-pinterest"></i></a></li>';} ?>
                     </ul>
                     <hr/>
+                    -->
                     <!-- Feedback Company Widget (start) -->
                     <script type="text/javascript" id="__fbcw__82f80a0c-8193-443c-806c-18d12959f689">
                         "use strict";!function(){
