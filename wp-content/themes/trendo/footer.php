@@ -29,7 +29,7 @@
                         foreach( $taxonomies as $category ) {
                             $term_link = get_term_link( $category );
 
-                            echo '<li><a class="blog__category ' . $blocktype . '" href="'.$term_link.'">';
+                            echo '<li><a class="blog__category" href="'.$term_link.'">';
                             echo $category->name;
                             echo '</a></li>';
                             $counter++;
