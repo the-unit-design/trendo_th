@@ -4,8 +4,8 @@ function register_wp_menus() {
     register_nav_menus(
         array(
             'main-menu' => __( 'Hoofd Menu', 'unittheme' ),
+            'cservice-menu' => __( 'Klantenservice Menu', 'unittheme' ),
             /*
-            'footer-menu' => __( 'Footer Menu', 'unittheme' ),
             'services-menu' => __( 'Diensten Menu', 'unittheme' )
             */
         )

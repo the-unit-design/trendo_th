@@ -9,6 +9,19 @@
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <p class="main-footer__content__title">Klantenservice</p>
+                    <?php
+                    wp_nav_menu( array(
+                            'theme_location'    => 'cservice-menu',
+                            'depth'             => 1,
+                            'container'         => 'div',
+                            'container_class'   => '',
+                            'container_id'      => 'navbarMainMenu',
+                            'menu_class'        => 'navbar-nav mr-auto',
+                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                            'walker'            => new WP_Bootstrap_Navwalker(),
+                        )
+                    );
+                    ?>
                 </div>
                 <div class="col-md-3">
                     <p class="main-footer__content__title">Winkels</p>
