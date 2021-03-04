@@ -77,7 +77,7 @@ if ($backgroundImg) {
             <?php
             $orderby = 'name';
             $order = 'asc';
-            $hide_empty = true ;
+            $hide_empty = false ;
             $cat_args = array(
                 'parent'     => 0,
                 'orderby'    => $orderby,
