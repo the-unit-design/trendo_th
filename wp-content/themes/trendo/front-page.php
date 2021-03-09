@@ -240,6 +240,21 @@ if ($backgroundImg) {
             ?>
         </div>
     </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </section>
     <!--
     <section class="section cta">
         <div class="container">

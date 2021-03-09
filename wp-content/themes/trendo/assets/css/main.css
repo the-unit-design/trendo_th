@@ -5102,6 +5102,18 @@ a {
     color: #fff;
     padding-top: 8px;
     padding-bottom: 8px; }
+    .main-header__top__navigation__list .menu-item {
+      font-size: 0.7777777778rem; }
+      .main-header__top__navigation__list .menu-item a {
+        display: inline-block;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 0.7777777778rem;
+        padding-top: 0;
+        padding-bottom: 0; }
+        .main-header__top__navigation__list .menu-item a:hover, .main-header__top__navigation__list .menu-item a:active, .main-header__top__navigation__list .menu-item a:focus {
+          text-decoration: none;
+          color: #ff6800; }
     .main-header__top__usps__item {
       margin-right: 20px;
       line-height: 20px;
@@ -5291,7 +5303,10 @@ a {
       .main-header__navigation {
         padding-top: 35px; } }
   .main-header__bottom {
-    padding: 10px 0; }
+    position: relative;
+    padding: 10px 0;
+    background-color: #7c7477;
+    color: #fff; }
 
 .main-navigation {
   margin-bottom: 0;

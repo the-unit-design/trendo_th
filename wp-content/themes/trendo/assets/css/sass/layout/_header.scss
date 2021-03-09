@@ -17,6 +17,25 @@
     color: $white;
     padding-top: 8px;
     padding-bottom: 8px;
+    &__navigation {
+      &__list {
+        .menu-item {
+          font-size: remy(14);
+          a {
+            display: inline-block;
+            color: $white;
+            text-transform: uppercase;
+            font-size: remy(14);
+            padding-top: 0;
+            padding-bottom: 0;
+            @include on-event() {
+              text-decoration: none;
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
     &__usps {
       &__item {
         margin-right: 20px;
@@ -210,6 +229,9 @@
     }
   }
   &__bottom {
+    position: relative;
     padding: 10px 0;
+    background-color: lighten($primary-color, 30%);
+    color: $white;
   }
 }

@@ -13,12 +13,10 @@
                     wp_nav_menu( array(
                             'theme_location'    => 'cservice-menu',
                             'depth'             => 1,
-                            'container'         => 'div',
-                            'container_class'   => '',
+                            'container'         => 'nav',
+                            'container_class'   => 'main-footer__content__navigation',
                             'container_id'      => 'navbarMainMenu',
-                            'menu_class'        => 'navbar-nav mr-auto',
-                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                            'walker'            => new WP_Bootstrap_Navwalker(),
+                            'menu_class'        => 'main-footer__content__navigation__list',
                         )
                     );
                     ?>
@@ -36,7 +34,8 @@
                     ) );
 
                     if ( !empty($taxonomies) ) :
-                        echo '<ul>';
+                        echo '<nav>';
+                        echo '<ul class="main-footer__content__navigation__list">';
                         $counter = 1;
                         $category_images = array("1", "635", "1060", "836", "42");
                         foreach( $taxonomies as $category ) {
@@ -48,7 +47,7 @@
                             $counter++;
                         }
                         echo '</ul>';
-
+                        echo '</nav>';
                     endif;
                     ?>
                     <!--
