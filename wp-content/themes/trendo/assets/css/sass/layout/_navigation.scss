@@ -1,3 +1,68 @@
+.main-header__navigation {
+  position: relative;
+  &__categories {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 11;
+    &__item {
+      display: inline-block;
+      &__link {
+        display: block;
+        padding: 10px 15px;
+        font-size: remy(16);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      @include on-event() {
+        background-color: $primary-color;
+        color: $white;
+        .main-header__navigation__categories__submenu {
+          display: block;
+          visibility: visible;
+        }
+        .main-header__navigation__categories__item__link {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+    &__submenu {
+      display: none;
+      visibility: hidden;
+      background-color: $primary-color;
+      position: absolute;
+      padding: 15px;
+      //width: 100%;
+      &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        &__item {
+          display: block;
+          &__link {
+            display: block;
+            color: $white;
+            text-decoration: none;
+            @include on-event() {
+              color: $white;
+              text-decoration: none;
+            }
+          }
+          @include on-event() {
+            color: $white;
+            .main-header__navigation__categories__submenu__item__link {
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .main-navigation {
   margin-bottom: 0;
   min-height: auto;
@@ -110,6 +175,23 @@
     }
     .icon-bar {
       background-color: $quarternary-color;
+    }
+  }
+  &__categories {
+    position: relative;
+    .menu-item {
+      @include on-event() {
+        .sub-menu {
+          display: block;
+          visibility: visible;
+        }
+      }
+    }
+    .sub-menu {
+      display: none;
+      visibility: hidden;
+      position: absolute;
+      left: 0;
     }
   }
 }

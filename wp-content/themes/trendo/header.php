@@ -67,31 +67,6 @@
                         mit uns voll im <span>trend!</span>
                     </div>
                 </div>
-                <!--
-                <div class="col-md-4">
-
-
-                    <nav class="main-navigation navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <?php
-                        wp_nav_menu( array(
-                                'theme_location'    => 'main-menu',
-                                'depth'             => 2,
-                                'container'         => 'div',
-                                'container_class'   => 'collapse navbar-collapse',
-                                'container_id'      => 'navbarMainMenu',
-                                'menu_class'        => 'navbar-nav mr-auto',
-                                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                                'walker'            => new WP_Bootstrap_Navwalker(),
-                            )
-                        );
-                        ?>
-                    </nav>
-
-                </div>
-                -->
                 <div class="col-md-4 main-header__contact">
                     <?php echo get_search_form( ); ?>
                 </div>
@@ -99,41 +74,100 @@
             </div>
         </div>
     </div>
-    <div class="category-navigation">
+    <div class="main-header__navigation">
         <div class="container">
-            <nav>
-                <ul class="nav justify-content-center">
-                    <?php
+        <?php
 
-                    $orderby = 'name';
-                    $order = 'asc';
-                    $hide_empty = true;
-                    $parent = 0;
-                    $cat_args = array(
-                        'orderby'       => $orderby,
-                        'order'         => $order,
-                        'hide_empty'    => $hide_empty,
-                        'parent'        => $parent,
-                    );
+        $taxonomy     = 'product_cat';
+        $orderby      = 'name';
+        $show_count   = 0;      // 1 for yes, 0 for no
+        $pad_counts   = 0;      // 1 for yes, 0 for no
+        $hierarchical = 1;      // 1 for yes, 0 for no
+        $title        = '';
+        $empty        = 0;
 
-                    $product_categories = get_terms( 'product_cat', $cat_args );
+        $args = array(
+            'taxonomy'     => $taxonomy,
+            'orderby'      => $orderby,
+            'show_count'   => $show_count,
+            'pad_counts'   => $pad_counts,
+            'hierarchical' => $hierarchical,
+            'title_li'     => $title,
+            'hide_empty'   => $empty
+        );
+        $all_categories = get_categories( $args );
+        echo '<ul class="main-header__navigation__categories">';
+        foreach ($all_categories as $cat) {
+            if($cat->category_parent == 0) {
 
-                    if( !empty($product_categories) ){
-                        foreach ($product_categories as $key => $category) {
-                            $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+                $category_id = $cat->term_id;
+                echo '<li class="main-header__navigation__categories__item"><a class="main-header__navigation__categories__item__link" href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';
 
-                            echo '<li class="nav-item">';
-                            echo '<a class="nav-link" href="'.get_term_link($category).'" >';
-                            echo $category->name;
-                            echo '</a>';
-                            echo '</li>';
-                        }
+                $args2 = array(
+                    'taxonomy'     => $taxonomy,
+                    'child_of'     => 0,
+                    'parent'       => $category_id,
+                    'orderby'      => $orderby,
+                    'show_count'   => $show_count,
+                    'pad_counts'   => $pad_counts,
+                    'hierarchical' => $hierarchical,
+                    'title_li'     => $title,
+                    'hide_empty'   => $empty
+                );
+                $sub_cats = get_categories( $args2 );
+                if($sub_cats) {
+                    echo '<div class="main-header__navigation__categories__submenu">';
+                    echo '<ul class="main-header__navigation__categories__submenu__list">';
+                    foreach($sub_cats as $sub_category) {
+                        echo '<li class="main-header__navigation__categories__submenu__list__item"><a class="main-header__navigation__categories__submenu__list__item__link" href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a>';
                     }
-                    ?>
-                    <?php rewind_posts(); ?>
-                </ul>
-            </nav>
+                    echo '</ul>';
+                    echo '</div>';
+                }
+                echo '</li>';
+            }
+        }
+        echo '</ul>';
+        ?>
         </div>
+        <!--
+        <div class="main-navigation">
+            <div class="container">
+                <nav>
+                    <ul class="nav justify-content-center">
+                        <?php
+
+                        $orderby = 'name';
+                        $order = 'asc';
+                        $hide_empty = false;
+                        $parent = 0;
+                        $cat_args = array(
+                            'orderby'       => $orderby,
+                            'order'         => $order,
+                            'hide_empty'    => $hide_empty,
+                            'parent'        => $parent,
+                        );
+
+                        $product_categories = get_terms( 'product_cat', $cat_args );
+
+                        if( !empty($product_categories) ){
+                            foreach ($product_categories as $key => $category) {
+                                $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+
+                                echo '<li class="nav-item">';
+                                echo '<a class="nav-link" href="'.get_term_link($category).'" >';
+                                echo $category->name;
+                                echo '</a>';
+
+                            }
+                        }
+                        ?>
+                        <?php rewind_posts(); ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        -->
     </div>
     <div class="main-header__bottom">
         <div class="container">

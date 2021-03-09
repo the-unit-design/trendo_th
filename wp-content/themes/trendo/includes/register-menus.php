@@ -5,6 +5,7 @@ function register_wp_menus() {
         array(
             'main-menu' => __( 'Hoofd Menu', 'unittheme' ),
             'quicklinks-menu' => __( 'Header Top Menu', 'unittheme' ),
+            'category-menu' => __( 'Product Categories', 'unittheme' ),
             'cservice-menu' => __( 'Klantenservice Menu', 'unittheme' ),
             /*
             'services-menu' => __( 'Diensten Menu', 'unittheme' )

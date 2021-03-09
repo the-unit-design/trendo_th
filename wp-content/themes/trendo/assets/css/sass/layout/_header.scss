@@ -220,13 +220,7 @@
   }
   &__navigation {
     position: relative;
-    @include break-up(lg) {
-      padding-top: 28px;
-      padding-bottom: 0;
-    }
-    @include break-up(xl) {
-      padding-top: 35px;
-    }
+    background-color: $gray-2;
   }
   &__bottom {
     position: relative;
