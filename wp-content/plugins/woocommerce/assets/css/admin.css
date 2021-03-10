@@ -69,19 +69,19 @@
  * WooCommerce CSS Variables
  */
 :root {
-  --woocommerce: $woocommerce;
-  --wc-green: $green;
-  --wc-red: $red;
-  --wc-orange: $orange;
-  --wc-blue: $blue;
-  --wc-primary: $primary;
-  --wc-primary-text: $primarytext;
-  --wc-secondary: $secondary;
-  --wc-secondary-text: $secondarytext;
-  --wc-highlight: $highlight;
-  --wc-highligh-text: $highlightext;
-  --wc-content-bg: $contentbg;
-  --wc-subtext: $subtext; }
+  --woocommerce: #a46497;
+  --wc-green: #7ad03a;
+  --wc-red: #a00;
+  --wc-orange: #ffba00;
+  --wc-blue: #2ea2cc;
+  --wc-primary: #a46497;
+  --wc-primary-text: white;
+  --wc-secondary: #ebe9eb;
+  --wc-secondary-text: #515151;
+  --wc-highlight: #77a464;
+  --wc-highligh-text: white;
+  --wc-content-bg: #fff;
+  --wc-subtext: #767676; }
 
 /**
  * _animation.scss

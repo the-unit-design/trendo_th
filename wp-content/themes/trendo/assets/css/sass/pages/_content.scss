@@ -197,9 +197,34 @@ body {
       }
     }
   }
+  &--icon-name {
+    display: block;
+    li  {
+      width: 45%;
+      margin-right: 5%;
+      float: left;
+      margin-bottom: 15px;
+      a {
+        width: auto;
+        text-align: left;
+        border: 0;
+        font-weight: 600;
+        @include border-radius(20px);
+        i {
+          width: 40px;
+          text-align: center;
+          margin-right: 10px;
+          line-height: 40px;
+          background-color: $primary-color;
+          color: $white;
+          @include border-radius(20px);
+        }
+      }
+    }
+  }
 }
 ::-moz-selection {
-  color: $white;;
+  color: $white;
   background: $primary-color;
 }
 

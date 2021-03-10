@@ -112,42 +112,40 @@ if ($backgroundImg) {
         <div class="container">
             <div class="article__content">
                 <div class="row justify-content-between">
-                    <div class="col-md-4">
-                        <div class="promo__item">
-                            <figure class="promo__item__image">
-                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1060" alt="" />
-                            </figure>
-                            <div class="promo__item__content">
-                                <h2 class="promo__item__content__title">Maak een afspraak</h2>
-                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
-                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
+                    <?php
+                    if( have_rows('tpl_homepage_infoblocks') ):
+                        while( have_rows('tpl_homepage_infoblocks') ) : the_row();
+                            $infoBlockTitle = get_sub_field('tpl_homepage_infoblock_title');
+                            $infoBlockImage = get_sub_field('tpl_homepage_infoblock_image');
+                            $infoBlockText = get_sub_field('tpl_homepage_infoblock_text');
+                            $infoBlockLink = get_sub_field('tpl_homepage_infoblock_link');
+                            $infoBlockLinktitle = get_sub_field('tpl_homepage_infoblock_linktitle');
+                            ?>
+                            <div class="col-md-4">
+                                <div class="promo__item">
+                                    <figure class="promo__item__image">
+                                        <?php
+                                        $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                        if( $infoBlockImage ) {
+                                            echo wp_get_attachment_image( $infoBlockImage, $size, "", array("class" => "img-fluid") );
+                                        } else { ?>
+                                            <img class="img-fluid" src="https://picsum.photos/900/540?image=1060" alt="" />
+                                        <?php
+                                        }
+                                        ?>
+                                    </figure>
+                                    <div class="promo__item__content">
+                                        <h2 class="promo__item__content__title"><?php echo $infoBlockTitle; ?></h2>
+                                        <p><?php echo $infoBlockText; ?></p>
+                                        <a class="btn btn--primary" href="<?php echo $infoBlockLink; ?>"><?php echo $infoBlockLinktitle; ?></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="promo__item">
-                            <figure class="promo__item__image">
-                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1061" alt="" />
-                            </figure>
-                            <div class="promo__item__content">
-                                <h2 class="promo__item__content__title">Razendsnel afhalen</h2>
-                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
-                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="promo__item">
-                            <figure class="promo__item__image">
-                                <img class="img-fluid" src="https://picsum.photos/900/540?image=1062" alt="" />
-                            </figure>
-                            <div class="promo__item__content">
-                                <h2 class="promo__item__content__title">Bank aan huis</h2>
-                                <p>Bezoek onze ruime winkel en krijg een goed beeld van ons ruime aanbod. Of krijg persoonlijk advies van onze stijlisten.</p>
-                                <a class="btn btn--primary" href="#">Contact en openingstijden</a>
-                            </div>
-                        </div>
-                    </div>
+                                <?php
+                        endwhile;
+                    else :
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>
@@ -184,21 +182,63 @@ if ($backgroundImg) {
                     */
                     ?>
                 </div>
-                <div class="col-md-5">
-                    <div class="row">
-                        <div class="col-md-6">
-                            1600 M2 SHOWROOM
+                <div class="col-md-5 d-flex align-items-end">
+                    <section class="section about-us__usps">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="about-us__usps__usp">
+                                    <figure class="about-us__usps__usp__image">
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/advice-icon.svg" alt="" width="80" height="45"/>
+                                    </figure>
+                                    <p class="about-us__usps__usp__title">
+                                        Interieuradvies
+                                    </p>
+                                    <p class="about-us__usps__usp__text">
+                                        Maak een afspraak
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-us__usps__usp">
+                                    <figure class="about-us__usps__usp__image">
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/delivery-icon.svg" alt="" width="80" />
+                                    </figure>
+                                    <p class="about-us__usps__usp__title">
+                                        Thuisbezorgd
+                                    </p>
+                                    <p class="about-us__usps__usp__text">
+                                        eigen bezorgers
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-us__usps__usp">
+                                    <figure class="about-us__usps__usp__image">
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/warranty-icon.svg" alt="" width="59" height="80" />
+                                    </figure>
+                                    <p class="about-us__usps__usp__title">
+                                        Minimaal 2 jaar garantie
+                                    </p>
+                                    <p class="about-us__usps__usp__text">
+                                        onbezorg genieten
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-us__usps__usp">
+                                    <figure class="about-us__usps__usp__image">
+                                        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/images/reviews-icon.svg" alt="" width="80" height="80" />
+                                    </figure>
+                                    <p class="about-us__usps__usp__title">
+                                        9.2 Klantwaardering
+                                    </p>
+                                    <p class="about-us__usps__usp__text">
+                                        Maak een afspraak
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            NEDERLAND, BELGIË, DUITSLAND
-                        </div>
-                        <div class="col-md-6">
-                            PERSOONLIJK ADVIES
-                        </div>
-                        <div class="col-md-6">
-                            LIFESTYLE MEUBELEN
-                        </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -238,21 +278,6 @@ if ($backgroundImg) {
 
             endif;
             ?>
-        </div>
-    </section>
-    <section class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-
-                </div>
-                <div class="col-md-6">
-
-                </div>
-                <div class="col-md-4">
-
-                </div>
-            </div>
         </div>
     </section>
     <!--

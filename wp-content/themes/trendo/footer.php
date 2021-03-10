@@ -3,6 +3,31 @@
 <?php if (is_front_page()) {
     /* get_template_part( 'template-parts/blocks/references', 'block' ); */
  } ?>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                Foto
+            </div>
+            <div class="col-lg-6">
+                <p class="main-footer__content__title">Heb je een vraag?</p>
+                <p>Vind je antwoord snel en makkelijk op onze klantenservice pagina.</p>
+                <ul class="social-media social-media--icon-name">
+                    <?php if (get_field('tpl_option_facebook', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_facebook', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Facebook"><i class="fa fa-facebook-f"></i>Facebook</a></li>';} ?>
+                    <?php if (get_field('tpl_option_instagram', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_instagram', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Instagram"><i class="fa fa-instagram"></i>Instagram</a></li>';} ?>
+                    <?php if (get_field('tpl_option_youtube', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_youtube', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Youtube"><i class="fa fa-youtube"></i>Youtube</a></li>';} ?>
+                    <?php if (get_field('tpl_option_twitter', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_twitter', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Twitter"><i class="fa fa-twitter"></i>Twitter</a></li>';} ?>
+                    <?php if (get_field('tpl_option_linkedin', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_linkedin', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' LinkedIn"><i class="fa fa-linkedin"></i>LinkedIn</a></li>';} ?>
+                    <?php if (get_field('tpl_option_pinterest', 'option') != false) { echo '<li class="nav-item"><a class="nav-link" href="' . get_field('tpl_option_pinterest', 'option') . '" target="_blank" title="' . get_field('tpl_option_companyname', 'option') . ' Youtube"><i class="fa fa-pinterest"></i>Youtube</a></li>';} ?>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <p class="main-footer__content__title">Meld je aan voor onze nieuwsbief</p>
+                <p>Ontvang de beste aanbiedingen en persoonlijk advies</p>
+            </div>
+        </div>
+    </div>
+</section>
 <footer class="main-footer">
     <div class="main-footer__content">
         <div class="container">
@@ -23,6 +48,38 @@
                 </div>
                 <div class="col-md-3">
                     <p class="main-footer__content__title">Winkels</p>
+                    <?php
+                    $argsStores = array(
+                        'post_type' => 'cpt_stores',
+                        'posts_per_page' => -1,
+                        'post_parent' => 0,
+                        'no_found_rows' => true,
+                    );
+                    $queryStores = new WP_Query( $argsStores ); ?>
+
+                    <?php if ( $queryStores->have_posts() ) : ?>
+
+                        <!-- pagination here -->
+
+                        <!-- the loop -->
+                    <nav>
+                        <ul class="main-footer__content__navigation__list">
+                            <?php while ( $queryStores->have_posts() ) : $queryStores->the_post();?>
+                                <li>
+                                    <a href="<?php the_permalink(); ?>" class=""><?php the_title(); ?></a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </nav>
+                        <!-- end of the loop -->
+
+                        <!-- pagination here -->
+
+                        <?php wp_reset_postdata(); ?>
+
+                    <?php else : ?>
+                        <p><?php esc_html_e( 'Sorry, op dit moment kunnen er geen diensten gevonden worden.' ); ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="col-md-3">
                     <p class="main-footer__content__title">Inspiratie</p>

@@ -21,6 +21,27 @@
       &__list {
         .menu-item {
           font-size: remy(14);
+          margin-left: 10px;
+          &.store {
+            a {
+              background-image: url("../images/icon-store.svg");
+            }
+          }
+          &.account {
+            a {
+              background-image: url("../images/icon-customer-service.svg");
+            }
+          }
+          &.wishlist {
+            a {
+              background-image: url("../images/icon-store.svg");
+            }
+          }
+          &.customer-service {
+            a {
+              background-image: url("../images/icon-customer-service.svg");
+            }
+          }
           a {
             display: inline-block;
             color: $white;
@@ -28,6 +49,10 @@
             font-size: remy(14);
             padding-top: 0;
             padding-bottom: 0;
+            padding-left: 24px;
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: left center;
             @include on-event() {
               text-decoration: none;
               color: $secondary-color;
