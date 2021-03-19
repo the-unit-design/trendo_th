@@ -108,12 +108,14 @@ if ($backgroundImg) {
             ?>
         </div>
     </section>
+
     <section class="section promo">
         <div class="container">
             <div class="article__content">
                 <div class="row justify-content-between">
                     <?php
                     if( have_rows('tpl_homepage_infoblocks') ):
+                        $i = 0;
                         while( have_rows('tpl_homepage_infoblocks') ) : the_row();
                             $infoBlockTitle = get_sub_field('tpl_homepage_infoblock_title');
                             $infoBlockImage = get_sub_field('tpl_homepage_infoblock_image');
@@ -121,7 +123,7 @@ if ($backgroundImg) {
                             $infoBlockLink = get_sub_field('tpl_homepage_infoblock_link');
                             $infoBlockLinktitle = get_sub_field('tpl_homepage_infoblock_linktitle');
                             ?>
-                            <div class="col-md-4">
+                            <div class="col-md-4 wow fadeInUp" data-wow-delay="<?php echo $i; ?>90ms">
                                 <div class="promo__item">
                                     <figure class="promo__item__image">
                                         <?php
@@ -142,6 +144,7 @@ if ($backgroundImg) {
                                 </div>
                             </div>
                                 <?php
+                        $i++;
                         endwhile;
                     else :
                     endif;

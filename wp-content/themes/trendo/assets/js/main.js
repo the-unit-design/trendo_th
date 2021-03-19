@@ -1,4 +1,5 @@
 jQuery(document).ready(function(){
+    new WOW().init();
 
     jQuery('.teaser__slider').slick({
         dots: true,
